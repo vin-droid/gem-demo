@@ -1,0 +1,104 @@
+<div class="highlight">
+    <h3 class="hljs-keyword">rails-assets-arboshiki--lobibox</h3>
+        <h5>rails-assets-arboshiki--lobibox wraps the latest <a href="http://lobianijs.com/site/lobibox">lobibox</a>  1.2.7 library in a rails.</h5>
+    
+    <h4 class="hljs-keyword">Setup</h4>
+        Add the following to your gemfile:
+    <pre>
+    <code>
+    source 'https://rails-assets.org' do
+       gem "rails-assets-arboshiki--lobibox" 
+    end 
+    </code>
+    </pre>
+    <b>lobibox uses font-awesome. so you need to add fontawesome also.</b>
+    <pre>
+    <code>
+    gem "font-awesome-rails"
+    </code>
+    </pre>
+    For installation font-awesome-rails refer <a href="https://github.com/bokmann/font-awesome-rails"  target="_blank">here </a> <br><br>
+    <b>Note:</b> This gem doesn't contain sound files. You must add it manually. Download files from here and exact it in <b>app/assets.</b><br><br>
+
+    Add this folder(sound) to asset pipe line edit config file.
+
+    <pre>
+    <code class="hljs groovy">
+    <span class="hljs-comment">app/config/initializers/assets.rb</span>
+    Rails.application.config.assets.paths << Rails.root.join("app", "assets", "sounds")
+    </code>
+    </pre>
+    Initialize JS
+    <pre>
+    <code class="hljs groovy">
+    <span class="hljs-comment">app/assets/javascripts/application.js</span>
+    Lobibox.notify.DEFAULTS = $.extend({}, Lobibox.notify.DEFAULTS, {
+        soundPath: '/assets/',
+        position: "bottom right",
+        iconSource: 'fontAwesome'
+    });
+    </code>
+    </pre>
+    <h4 class="hljs-keyword">Usage</h4>
+    <pre>
+        <code>
+        Lobibox.notify(type, {
+            msg: "Hello World!"
+        });
+
+        <span class="hljs-keyword">type</span>:     // 'default','info', 'warning', 'error', 'success'
+        </code>
+    </pre>
+
+</div>
+<h3>Options</h3>
+<h4>Default options for lobibox notifications</h4>
+<div class="highlight">
+    <pre><code class="hljs sql">title: true,                // Title of notification. <span class="hljs-keyword">Do</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">include</span> it <span class="hljs-keyword">for</span> <span class="hljs-keyword">default</span> title <span class="hljs-keyword">or</span> <span class="hljs-keyword">set</span> custom string. <span class="hljs-keyword">Set</span> this <span class="hljs-literal">false</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">disable</span> title
+        <span class="hljs-keyword">size</span>: <span class="hljs-string">'normal'</span>,             // <span class="hljs-keyword">normal</span>, mini, <span class="hljs-keyword">large</span>
+        soundPath: <span class="hljs-string">'src/sounds/'</span>,   // The folder <span class="hljs-keyword">path</span> <span class="hljs-keyword">where</span> sounds <span class="hljs-keyword">are</span> located
+        soundExt: <span class="hljs-string">'.ogg'</span>,           // <span class="hljs-keyword">Default</span> extension <span class="hljs-keyword">for</span> all sounds
+        showClass: <span class="hljs-string">'zoomIn'</span>,        // <span class="hljs-keyword">Show</span> animation class. fadeInDown, fadeUpDown, zoomIn, zoomOut
+        hideClass: <span class="hljs-string">'zoomOut'</span>,       // Hide animation class. fadeInDown, fadeUpDown, zoomIn, zoomOut
+        icon: <span class="hljs-literal">true</span>,                 // Icon <span class="hljs-keyword">of</span> notification. Leave <span class="hljs-keyword">as</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">default</span> icon <span class="hljs-keyword">or</span> <span class="hljs-keyword">set</span> custom <span class="hljs-keyword">string</span>
+        msg: <span class="hljs-string">''</span>,                    // Message <span class="hljs-keyword">of</span> notification
+        img: <span class="hljs-literal">null</span>,                  // Image <span class="hljs-keyword">source</span> <span class="hljs-keyword">string</span>
+        closable: <span class="hljs-literal">true</span>,             // Make notifications closable
+        delay: <span class="hljs-number">5000</span>,                // Hide notification <span class="hljs-keyword">after</span> this <span class="hljs-keyword">time</span> (<span class="hljs-keyword">in</span> miliseconds)
+        delayIndicator: <span class="hljs-literal">true</span>,       // <span class="hljs-keyword">Show</span> timer <span class="hljs-keyword">indicator</span>
+        closeOnClick: <span class="hljs-literal">true</span>,         // <span class="hljs-keyword">Close</span> notifications <span class="hljs-keyword">by</span> clicking <span class="hljs-keyword">on</span> them
+        width: <span class="hljs-number">400</span>,                 // Width <span class="hljs-keyword">of</span> notification box
+        sound: <span class="hljs-literal">true</span>,                // Sound <span class="hljs-keyword">of</span> notification. <span class="hljs-keyword">Set</span> this <span class="hljs-literal">false</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">disable</span> sound. Leave <span class="hljs-keyword">as</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">default</span> sound <span class="hljs-keyword">or</span> <span class="hljs-keyword">set</span> custom soud <span class="hljs-keyword">path</span>
+        <span class="hljs-keyword">position</span>: <span class="hljs-string">"bottom right"</span>    // Place <span class="hljs-keyword">to</span> <span class="hljs-keyword">show</span> notification. Available options: <span class="hljs-string">"top left"</span>, <span class="hljs-string">"top right"</span>, <span class="hljs-string">"bottom left"</span>, <span class="hljs-string">"bottom right"</span>
+        iconSource: <span class="hljs-string">"bootstrap"</span>     // <span class="hljs-string">"bootstrap"</span> <span class="hljs-keyword">or</span> <span class="hljs-string">"fontAwesome"</span> the <span class="hljs-keyword">library</span> which will be used <span class="hljs-keyword">for</span> icons
+        rounded: <span class="hljs-literal">false</span>,             // Whether <span class="hljs-keyword">to</span> make notification corners rounded
+        messageHeight: <span class="hljs-number">60</span>,          // Notification message maximum height. This <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">for</span> notification itself, this <span class="hljs-keyword">is</span> <span class="hljs-keyword">for</span> <code>.lobibox-notify-msg</code>
+        pauseDelayOnHover: <span class="hljs-literal">true</span>,    // <span class="hljs-keyword">When</span> you mouse <span class="hljs-keyword">over</span> <span class="hljs-keyword">on</span> notification, delay will be paused, <span class="hljs-keyword">only</span> <span class="hljs-keyword">if</span> <code>continueDelayOnInactiveTab</code> <span class="hljs-keyword">is</span> false.
+        onClickUrl: <span class="hljs-literal">null</span>,           // The <span class="hljs-keyword">url</span> which will be opened <span class="hljs-keyword">when</span> notification <span class="hljs-keyword">is</span> clicked. e.g: 'http://google.com'
+        showAfterPrevious: <span class="hljs-literal">false</span>,   // <span class="hljs-keyword">Set</span> this <span class="hljs-keyword">to</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> you want notification <span class="hljs-keyword">not</span> <span class="hljs-keyword">to</span> be shown <span class="hljs-keyword">until</span> previous notification <span class="hljs-keyword">is</span> closed. This <span class="hljs-keyword">is</span> useful <span class="hljs-keyword">for</span> notification queues
+        continueDelayOnInactiveTab: <span class="hljs-literal">true</span>, // Continue delay <span class="hljs-keyword">when</span> browser tab <span class="hljs-keyword">is</span> inactive
+
+        //<span class="hljs-keyword">Overriding</span> <span class="hljs-keyword">default</span> options
+        Lobibox.notify.DEFAULTS = $.extend({}, Lobibox.notify.DEFAULTS, {
+        ... //override <span class="hljs-keyword">any</span> options <span class="hljs-keyword">from</span> <span class="hljs-keyword">default</span> options
+    });
+
+</code></pre>
+</div>
+<div id="lobibox-notification-examples">
+    <h3>Examples</h3>
+    <fieldset>
+        <div class="bs-example">
+            <button id="basicInfo" class="btn btn-raised btn-info">Info</button>
+            <button id="basicWarning" class="btn btn-raised btn-warning">Warning<div class="ripple-container"></div></button>
+            <button id="basicError" class="btn btn-raised btn-danger">Error<div class="ripple-container"></div></button>
+            <button id="basicSuccess" class="btn btn-raised btn-success">Success</button>
+        </div>
+        <div class="highlight">
+            <pre><code class="hljs elm"><span class="hljs-type">Lobibox</span>.notify(<span class="hljs-keyword">type</span>, {
+                ...
+            });
+        </code></pre>
+    </div>
+</fieldset>
+</div>
