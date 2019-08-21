@@ -1951,7 +1951,7 @@ a.ui-button:active {
 .ui-widget-overlay {
     background: url(images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% #666;
     opacity: .5;
-    filter: Alpha(Opacity=50)
+    filter: Alpha(Opacity=50);
 }
 
 .ui-widget-shadow {
@@ -6046,7 +6046,6 @@ tbody.collapse.in {
     text-decoration: none;
     cursor: not-allowed;
     background-color: transparent;
-    filter: progid: DXImageTransform.Microsoft.gradient(enabled=false)
 }
 
 .open>.dropdown-menu {
@@ -8741,11 +8740,11 @@ button.close {
     font-size: 12px;
     text-align: left;
     text-align: start;
-    filter: alpha(opacity=0)
+    filter: alpha(opacity=0);
 }
 
 .tooltip.in {
-    filter: alpha(opacity=90)
+    filter: alpha(opacity=90);
 }
 
 .tooltip.top {
@@ -9096,7 +9095,6 @@ button.close {
     background-image: -o-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
     background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
     background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
     background-repeat: repeat-x
 }
 
@@ -9107,7 +9105,6 @@ button.close {
     background-image: -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
     background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));
     background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
     background-repeat: repeat-x
 }
 
