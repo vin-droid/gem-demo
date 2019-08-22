@@ -18,14 +18,16 @@
     </code>
     </pre>
     For installation font-awesome-rails refer <a href="https://github.com/bokmann/font-awesome-rails"  target="_blank">here </a> <br><br>
-    <b>Note:</b> This gem doesn't contain sound files. You must add it manually. Download files from here and exact it in <b>app/assets.</b><br><br>
-
-    Add this folder(sound) to asset pipe line edit config file.
+    <b>Note:</b> This gem doesn't contain sound files. If you want sound also, You must add path from github repo or a path where you can upload these sound files. <b>app/assets.</b><br><br>
 
     <pre>
     <code class="hljs groovy">
-    <span class="hljs-comment">app/config/initializers/assets.rb</span>
-    Rails.application.config.assets.paths << Rails.root.join("app", "assets", "sounds")
+    <span class="hljs-comment"></span>
+    Lobibox.notify.DEFAULTS = $.extend({}, Lobibox.notify.DEFAULTS, {
+        soundPath: 'https://github.com/arboshiki/lobibox/raw/master/sounds/',
+        position: "bottom right",
+        iconSource: 'fontAwesome'
+    });
     </code>
     </pre>
     Initialize JS
