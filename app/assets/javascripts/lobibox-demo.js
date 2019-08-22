@@ -1,6 +1,6 @@
 $( document ).on('turbolinks:load', function () {
     Lobibox.notify.DEFAULTS = $.extend({}, Lobibox.notify.DEFAULTS, {
-        soundPath: '/assets/',
+        soundPath: 'https://github.com/arboshiki/lobibox/raw/master/sounds/',
         position: "bottom right",
         iconSource: 'fontAwesome'
     });
